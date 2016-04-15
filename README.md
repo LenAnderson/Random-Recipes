@@ -31,38 +31,38 @@ Change the file association for .jar files to use `java.exe`. This will affect a
 ## Sample
 ##### Input
     [pancakes.txt]
-    flour   250g
-    eggs    3
-    milk    250ml
-    water   250ml
-    butter  100g
-    sugar   some
-    vanilla sugar   1 package
+    flour	250g
+    eggs	3
+    milk	250ml
+    water	250ml
+    butter	100g
+    sugar	some
+    vanilla sugar	1 package
     
     [pasta salad.txt]
-    tomatoes    500g
-    gouda   300g
-    pasta   250g
-    miracel whip    8 tablespoons
-    ketchup 4 tablespoons
-    garlic  1 clove
+    tomatoes	500g
+    gouda	300g
+    pasta	250g
+    miracel whip	8 tablespoons
+    ketchup	4 tablespoons
+    garlic	1 clove
     
     [meatballs.txt]
-    ground meat 750g
-    onions  1
-    eggs    1
-    ketchup some
-    water   2 tablespoons
+    ground meat	750g
+    onions	1
+    eggs	1
+    ketchup
+    water	2 tablespoons
     breadcrumbs 5 tablespoons
     
     [zucchini-mushroom-pasta.txt]
-    zucchini    1
-    mushrooms   200g
-    onions  2
+    zucchini	1
+    mushrooms	200g
+    onions	2
     balsamico
-    vegetable stock 1 teaspoon
+    vegetable stock	1 teaspoon
     cream
-    pasta   500g
+    pasta	500g
 
 ##### Output
     pancakes
