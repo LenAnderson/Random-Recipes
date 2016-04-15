@@ -30,6 +30,8 @@ Change the file association for .jar files to use `java.exe`. This will affect a
 
 ## Sample
 ##### Input
+Github / markdown replaces tabs with spaces. The spaces between the ingredients name and the quantity should be one single tab.
+
     [pancakes.txt]
     flour	250g
     eggs	3
