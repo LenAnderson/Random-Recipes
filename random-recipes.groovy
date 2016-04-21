@@ -1,12 +1,14 @@
 def recipes = new File("recipes").listFiles() as List
 Collections.shuffle(recipes)
-recipes = recipes[0..Math.min(recipes.size()-1,13)]
 
 def shopping = [:]
+def servings = 0
+def output = ""
 
-recipes.each { recipe ->
-    println recipe.name[0..-5]
-    def ingredients = recipe.text.split("\r?\n")*.split("\t")
+recipes.find { recipe ->
+    output += "${recipe.name[0..-5]}\r\n"
+    servings += (recipe.name.replaceAll(~/^.+?( \((\d+)\))?\.txt$/, '$2')?:1) as Integer
+    def ingredients = recipe.text.split("\r?\r\n")*.split("\t")
     ingredients.each { ingredient ->
         def qty = 0
         def uom = "some"
@@ -23,16 +25,18 @@ recipes.each { recipe ->
             shopping[ingredient[0]][uom] += qty
         }
     }
+    servings >= 14
 }
-println "\n--------------------------\n"
+output += "\r\n-------------- $servings servings --------------\r\n\r\n"
 
 def pad = shopping.keySet()*.length().max()
 shopping.each { ingredient, quantities ->
-    print "$ingredient"
+    output += "$ingredient"
     quantities.eachWithIndex { uom, qty, idx ->
         if (idx > 0)
-            print " ".multiply(ingredient.length())
-        print " ".multiply(pad-ingredient.length()) + "  ${qty?qty+' ':''}$uom\n"
+            output += " ".multiply(ingredient.length())
+        output += " ".multiply(pad-ingredient.length()) + "  ${qty?qty+' ':''}$uom\r\n"
     }
 }
-System.console().readLine "\n\nPress any key to continue."
+
+new File("shopping.txt").text = output
